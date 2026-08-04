@@ -1,0 +1,15 @@
+pkgname=setserial
+version=2.17
+revision=1
+build_style=gnu-configure
+short_desc="Serial driver config tool"
+maintainer="Max Logaev <logaevmax@gmail.com>"
+license="GPL-2.0-only"
+homepage="https://sourceforge.net/projects/setserial"
+distfiles="https://archive.ubuntu.com/ubuntu/pool/main/s/setserial/setserial_${version}.orig.tar.gz"
+hostmakedepends="automake autoconf libtool pkg-config"
+checksum=7e4487d320ac31558563424189435d396ddf77953bb23111a17a3d1487b5794a
+
+pre_configure() {
+    autoreconf -fi
+}
