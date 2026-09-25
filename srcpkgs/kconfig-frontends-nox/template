@@ -1,0 +1,22 @@
+# Template file for 'kconfig-frontends-'
+_pkgname=kconfig-frontends
+pkgname=${_pkgname}-nox
+version=4.11.0.1
+revision=1
+archs="x86_64*"
+build_style=gnu-configure
+configure_args="--disable-gconf --disable-qconf"
+hostmakedepends="autoconf automake pkg-config libtool"
+makedepends="flex gperf bison ncurses-devel"
+depends="bash python3"
+short_desc="Linux kernel style configuration framework for other projects - no X"
+maintainer="Max Logaev <logaevmax@gmail.com>"
+license="GPL-2.0-only"
+homepage="https://gitlab.com/ymorin/kconfig-frontends"
+distfiles="${DEBIAN_SITE}/main/k/${_pkgname}/${_pkgname}_${version}+dfsg.orig.tar.bz2"
+checksum=5462393596a42e6efed78e1b0a56fde75466dd50452394b841f2882a78000ca8
+
+pre_configure() {
+    mkdir -p "./scripts/.autostuff/m4"
+	autoreconf -fi
+}
